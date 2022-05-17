@@ -140,6 +140,7 @@ public class Lecture {
 		/*
 		26. Now set isDoneWithExercise to true.
 		*/
+		// very nice
 		isDoneWithExercises = true;
 		System.out.println(isDoneWithExercises);
 	}
