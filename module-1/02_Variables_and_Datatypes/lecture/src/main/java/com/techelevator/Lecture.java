@@ -23,63 +23,62 @@ public class Lecture {
 			Set it to "TechElevator".
 		*/
 		String name = "TechElevator";
-		System.out.println(name);
+
 
 		/*
 		4. Create a variable called seasonsOfFirefly and set it to 1.
 		*/
 		int seasonsOfFirefly = 1;
-		System.out.println(seasonsOfFirefly);
+
 
 		/*
 		5. Create a variable called myFavoriteLanguage and set it to "Java".
 		*/
 		String myFavoriteLanguage = "Java";
-		System.out.println(myFavoriteLanguage);
 
 		/*
 		6. Create a variable called pi and set it to 3.1416.
 		*/
 		double pi = 3.1416;
-		System.out.println(pi);
+
 
 		/*
 		7. Create and set a variable that holds your name.
 		*/
 		String myName = "Andy";
-		System.out.println(myName);
+
 		/*
 		8. Create and set a variable that holds the number of buttons on your mouse.
 		*/
 		int numberOfButtonsOnMouse = 2;
-		System.out.println(numberOfButtonsOnMouse);
+
 		/*
 		9. Create and set a variable that holds the percentage of battery left on
 		your phone.
 		*/
 		int batteryLife = 98;
-		System.out.println(batteryLife);
+
 		/*
 		10. Create an int variable that holds the difference between 121 and 27.
 		*/
 		int x = 121 - 27;
-		System.out.println(x);
+
 		/*
 		11. Create a double that holds the addition of 12.3 and 32.1.
 		*/
 		double y = 12.3 + 32.1;
-		System.out.println(y);
+
 		/*
 		12. Create a String that holds your full name.
 		*/
 		String myFullName = "Andy Noel Colondres";
-		System.out.println(myFullName);
+
 		/*
 		13. Create a String that holds the word "Hello, " concatenated onto your
 		name from above.
 		*/
 		String greeting = "Hello, " + myFullName;
-		System.out.println(greeting);
+
 		/*
 		14. Add a " Esquire" onto the end of your full name and save it back to
 		the same variable.
