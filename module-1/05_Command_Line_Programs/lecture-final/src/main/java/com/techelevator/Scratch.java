@@ -60,7 +60,21 @@ public class Scratch {
 
 
 
-        System.out.println("Hello World");
+        // String Equality
+        String s1 = new String("Christopher");
+        String s2 = new String("Christopher");
+        boolean isStringEqual = (s1 == s2);
+        System.out.println("Are the strings equal: " + isStringEqual);
+        isStringEqual = (s1.equals(s2));
+        System.out.println("Are the strings equal: " + isStringEqual);
+
+        // How to split strings
+        String commaSeparatedList = "Christopher,Anthony,Sasi";
+        String[] instructors = commaSeparatedList.split(",");
+
+        for(int index = 0; index < instructors.length; index++) {
+            System.out.println(instructors[index]);
+        }
 
     }
 
