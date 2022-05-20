@@ -89,7 +89,7 @@ public class Lecture {
             double eight = five + three;
         }
 
-        return 5.00;
+        return one;
     }
 
     /*

@@ -24,6 +24,11 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110) ➔ 22.5
      */
     public double calculateElectricBill(double unitsUsed) {
+        if (unitsUsed <= 100) {
+            return (unitsUsed * BASE_RATE);
+        } else if (unitsUsed > 100) {
+            return ((100 * BASE_RATE) + ((unitsUsed - 100) * EXCESS_RATE));
+        }
         return 0;
     }
 
@@ -41,6 +46,30 @@ public class Exercise06_ElectricBill {
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
         return 0;
     }
+        /*
+        if (calculateElectricBill(unitsUsed)*DISCOUNT_FACTOR) {
+            return hasRenewableEnergy;
+        }
+            return (calculateElectricBill(unitsUsed)); {
+
+        }
+        }
+        */
+
+        /*
+        double price = unitsUsed * BASE_RATE;
+        double discount = price * 0.05;
+
+        if (hasRenewableEnergy) {
+            return (price - discount);
+        } else if (unitsUsed <= 100) {
+            return (unitsUsed * BASE_RATE);
+        } else if (unitsUsed > 100) {
+            return ((100 * BASE_RATE) + ((unitsUsed - 100) * EXCESS_RATE));
+        }
+            return 0;
+        }
+*/
 
     /*
     Customers with renewable energy can put electricity back into the grid. Each customer's net usage (units used - units returned)
