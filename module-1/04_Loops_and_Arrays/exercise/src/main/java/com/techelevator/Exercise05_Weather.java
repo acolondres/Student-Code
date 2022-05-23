@@ -25,7 +25,13 @@ public class Exercise05_Weather {
 	belowFreezing([]) → 0
     */
 	public int belowFreezing(int[] dailyHighs) {
-		return 0;
+        int count = 0;
+        for (int index = 0; index < dailyHighs.length; index++) {
+            if (dailyHighs[index] <= 32)
+                ++count;
+        }
+        return count;
+
 	}
 
     /*
@@ -43,8 +49,18 @@ public class Exercise05_Weather {
 	hottestDay([55]) → 55
     */
     public int hottestDay(int[] dailyHighs) {
-        return 0;
-    }
+
+            int i;
+            // maximum element
+            int max = dailyHighs[0];
+            // array elements from second and
+            // compare every element with current max
+            for (i = 1; i < dailyHighs.length; i++)
+                if (dailyHighs[i] > max)
+                    max = dailyHighs[i];
+            return max;
+        }
+
 
     /*
     GaleForce discovered an equipment malfunction. Every other reading, starting with the first,
@@ -61,6 +77,14 @@ public class Exercise05_Weather {
 	fixTemperatures([]) → []
      */
     public int[] fixTemperatures(int[] temperatures) {
-        return new int[] {};
+        int[] fix = new int[temperatures.length];
+        for (int index = 0; index < temperatures.length; index++) {
+            if (index % 2 !=0) {
+                fix[index] = temperatures[index];
+            } else {
+                fix[index] = temperatures[index] + 2;
+            }
+        }
+        return fix;
     }
 }
