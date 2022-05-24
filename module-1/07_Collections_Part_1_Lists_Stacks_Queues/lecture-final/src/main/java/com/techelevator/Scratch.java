@@ -93,10 +93,34 @@ public class Scratch {
             Employee e = employees.get(index);
         }
 
+        //autoboxing and unboxing
+        List<Integer> myNumbers = new ArrayList<>();
+        myNumbers.add(5);
+        myNumbers.add(99);
+
+        int myNum = myNumbers.get(0);
+
 
         // how to filter based on condition
+        int[] numbers = {99, 90, 80, 70, 10, 2, 92, 66};
+        List<Integer> numbersOver90 = new ArrayList<>();
 
+        for(int num : numbers) {
+            if(num >= 90) {
+                numbersOver90.add(num);
+                System.out.println("Found num " + num);
+            } else {
+                System.out.println("Ignoring num " + num);
+            }
+        }
 
+        // or use it to exclude
+        List<String> newNames = new ArrayList<String>();
+        for(String name : names) {
+            if (!name.equalsIgnoreCase("greg")) {
+                newNames.add(name);
+            }
+        }
 
     }
 }
