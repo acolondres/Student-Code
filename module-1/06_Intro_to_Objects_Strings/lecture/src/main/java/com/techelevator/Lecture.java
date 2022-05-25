@@ -15,6 +15,8 @@ public class Lecture {
 
 		/* create an new instance of String using a literal */
 
+		String name = "Andy";
+		System.out.println(name);
 		
 		System.out.println();
 		System.out.println("******************************");
@@ -35,6 +37,11 @@ public class Lecture {
 		 * toUpperCase
 		 * trim
 		 */
+
+		System.out.println(" ends with y? = " + name.endsWith("y"));
+		System.out.println(" starts with g? " + name.endsWith("g"));
+		System.out.println("index of A: " + name.indexOf("A"));
+
 
 		System.out.println();
 		System.out.println("**********************");
