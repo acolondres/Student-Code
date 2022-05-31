@@ -6,6 +6,14 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+        WarpDrive drive = new WarpDrive(250, 10);
+
+        Starship enterprise = new Starship(drive, "Battle", 3500, "C");
+
+        List<CrewMember> crew = new ArrayList<>();
+        crew.add(new CrewMember("Jean Luc Picard", "Captain"));
+        crew.add(new CrewMember("Worf", "Head of Security"));
+        crew.add(new CrewMember("Beverly Crusher", "Chief Medical Officer"));
 
         WarpDrive drive = new WarpDrive(250, 10 );
 
@@ -24,5 +32,6 @@ public class Main {
         System.out.println(member.getName());
 
 
+        System.out.println("Done");
     }
 }

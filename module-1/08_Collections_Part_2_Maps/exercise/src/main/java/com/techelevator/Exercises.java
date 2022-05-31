@@ -1,7 +1,9 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Exercises {
 
@@ -34,7 +36,26 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		Map<String, String> animalGroupName = new HashMap<>();
+
+		animalGroupName.put("rhino", "Crash");
+		animalGroupName.put("giraffe", "Tower");
+		animalGroupName.put("elephant", "Herd");
+		animalGroupName.put("lion", "Pride");
+		animalGroupName.put("crow", "Murder");
+		animalGroupName.put("pigeon","Kit");
+		animalGroupName.put("flamingo","Pat");
+		animalGroupName.put("deer", "Herd");
+		animalGroupName.put("dog", "Pack");
+		animalGroupName.put("crocodile", "Float");
+
+		if  (animalName == null) {
+			return "unknown";
+		}
+		else if (!animalGroupName.containsKey(animalName.toLowerCase())) {
+			return "unknown";
+		}
+		return animalGroupName.get(animalName.toLowerCase());
 	}
 
 	/*
@@ -60,8 +81,24 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		Map<String, Double> listOfSales = new HashMap<>();
+
+		listOfSales.put("KITCHEN4001", 0.20);
+		listOfSales.put("GARAGE1070", 0.15);
+		listOfSales.put("LIVINGROOM", 0.10);
+		listOfSales.put("KITCHEN6073", 0.40);
+		listOfSales.put("BEDROOM3434", 0.60);
+		listOfSales.put("BATH0073", 0.15);
+
+		if  (itemNumber == null) {
+			return 0.00;
+		}
+		else if (!listOfSales.containsKey(itemNumber.toLowerCase())) {
+			return 0.00;
+		}
+		return listOfSales.get(itemNumber.toLowerCase());
 	}
+
 
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
@@ -74,8 +111,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		//paul less than 10 dollars & //peter has more than 0 dollars
+		int paul = peterPaul.get("Paul");
+		int peter = peterPaul.get("Peter");
+		if(paul < 1000 && peter > 0) { //peter has more than 0 dollars
+			//if both true, half peters money added to pauls amount
+			paul = paul + peter / 2;
+			// subtract peters money
+			peter = peter - peter / 2;
+			// update map with new values
+			peterPaul.put("Peter", peter);
+			peterPaul.put("Paul", paul);
+		}
+		// return their money
+		return peterPaul;
 	}
+
+
 
 	/*
 	 * Modify and return the given Map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
@@ -87,7 +139,28 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int paulMoney = peterPaul.get("Paul");
+		int peterMoney = peterPaul.get("Peter");
+		int partner = 0;
+
+		int paul25 = paulMoney - paulMoney / 4;
+		int peter25 = peterMoney - peterMoney / 4;
+
+
+		if (peterMoney >= 50000 && paulMoney >= 100000) {
+			paulMoney = paulMoney - paul25;
+			peterMoney = peterMoney - peter25;
+			partner = paul25 + peter25;
+			peterPaul.put("Paul", paulMoney);
+			peterPaul.put("Peter", peterMoney);
+			peterPaul.put("PeterPaulPartnership", partner);
+			return peterPaul;
+
+		}
+
+	return null;
+
+
 	}
 
 	/*
@@ -99,7 +172,16 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String, String> keyValue = new HashMap<>();
+
+		for (String strings : words){
+
+			keyValue.put(strings.substring(0, 1), strings.substring(strings.length() -1))	;
+		}
+
+
+
+		return keyValue;
 	}
 
 	/*
@@ -115,8 +197,19 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
-	}
+			Map<String, Integer> map = new HashMap();
+			for (String s: words) {
+				String tmp = s;
+				if (map.containsKey(tmp)) {
+					int count = map.get(tmp);
+					map.put(tmp, count + 1);
+				} else
+					map.put(tmp, 1);
+			}
+			return map;
+		}
+
+
 
 	/*
 	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
@@ -130,7 +223,17 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> counts = new HashMap<>();
+		for (int integerCheck : ints) {
+			if(counts.containsKey(integerCheck)) {
+				int currentCount = counts.get(integerCheck);
+				currentCount++;
+				counts.put(integerCheck, currentCount) ;
+			} else {
+				counts.put(integerCheck, 1);
+			}
+		}
+		return counts;
 	}
 
 	/*
