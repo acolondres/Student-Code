@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.superhero;
 
 public class Avenger {
 
@@ -36,7 +36,8 @@ public class Avenger {
         return "If we cannot save the Earth - then we will avenge it!";
     }
 
-    private void userPower() {
+    // protected means that my children can see this and use it, but no one else
+    protected void userPower() {
 
     }
 

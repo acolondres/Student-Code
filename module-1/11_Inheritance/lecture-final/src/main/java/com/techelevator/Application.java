@@ -17,5 +17,11 @@ public class Application {
         //....
         // This might go on until the auction runs out of time or hits a max # of bids
 
+        BuyoutAuction buyoutAuction = new BuyoutAuction("Fancy Rock", 100);
+        buyoutAuction.placeBid(new Bid("Josh", 10));
+        buyoutAuction.placeBid(new Bid("Fonz", 23));
+        buyoutAuction.placeBid(new Bid("Rick Astley", 1300));
+        buyoutAuction.placeBid(new Bid("Christopher", 100));
+
     }
 }
