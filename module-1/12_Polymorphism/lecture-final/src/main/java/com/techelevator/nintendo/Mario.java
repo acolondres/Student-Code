@@ -38,4 +38,9 @@ public class Mario extends VideoGameCharacter{
         return life;
     }
 
+    @Override
+    public String toString() {
+        return "It's a me a mario!";
+    }
+
 }

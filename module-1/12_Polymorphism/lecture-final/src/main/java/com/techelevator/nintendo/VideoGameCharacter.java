@@ -1,6 +1,6 @@
 package com.techelevator.nintendo;
 
-public class VideoGameCharacter {
+public class VideoGameCharacter implements Runnable {
 
     private int points;
     private int life;
