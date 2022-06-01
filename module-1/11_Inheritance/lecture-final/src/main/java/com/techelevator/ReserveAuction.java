@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class ReserveAuction extends Auction{
+public class ReserveAuction extends Auction {
 
     private int reservePrice = 0;
 
@@ -14,7 +14,12 @@ public class ReserveAuction extends Auction{
 
         //this checks that each bid meets the minimum reserve price
         // and if it doesn't then the bid is ignored
-
-        return false;
+        boolean isValidBid = false;
+        if (offeredBid.getBidAmount() >= reservePrice) {
+            isValidBid = super.placeBid(offeredBid);
+        } else {
+            System.out.println("Bid is invalid. Offered bid must meet minimum reserve price");
+        }
+        return isValidBid;
     }
 }
