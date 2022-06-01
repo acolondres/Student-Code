@@ -3,7 +3,8 @@ package com.techelevator.farm;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
-		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken() };
+		// Instead of FarmAnimal, change it to the name of your interface
+		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Tractor()};
 
 		for (FarmAnimal animal : farmAnimals) {
 			String name = animal.getName();
