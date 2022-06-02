@@ -1,8 +1,9 @@
 package com.techelevator.farm;
 
-public class FarmAnimal {
+public class FarmAnimal implements FarmProperty {
 	private String name;
 	private String sound;
+	public void property() {}
 
 	public FarmAnimal(String name, String sound) {
 		this.name = name;

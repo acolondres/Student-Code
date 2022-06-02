@@ -40,4 +40,17 @@ public class BankAccount {
         return balance;
     }
 
+    public int transferTo(BankAccount destinationAccount, int transferAmount) {
+
+        // Withdraws transferAmount from this account
+        withdraw(transferAmount);
+
+        // deposits it into destinationAccount
+        destinationAccount.deposit(transferAmount);
+
+        // and returns the new balance of this account.
+        return balance;
+
+    }
+
 }

@@ -4,9 +4,10 @@ public class OldMacdonald {
 	public static void main(String[] args) {
 
 		// Instead of FarmAnimal, change it to the name of your interface
-		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Tractor()};
+		// FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Tractor()};
+		FarmProperty[] farmProperties = new FarmProperty[] { new Cow(), new Chicken(), new Tractor()};
 
-		for (FarmAnimal animal : farmAnimals) {
+		for (FarmProperty animal : farmProperties) {
 			String name = animal.getName();
 			String sound = animal.getSound();
 			System.out.println("Old MacDonald had a farm, ee, ay, ee, ay, oh!");
