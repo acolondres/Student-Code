@@ -5,13 +5,17 @@ import java.util.ArrayList;
 public class BankCustomer {
     private String name;
     private String address;
-    private String phone;
+    private String phoneNumber;
 
-    private ArrayList<Accountable> accounts = new ArrayList<>();
+    private ArrayList<Accountable> accounts = new ArrayList<>() ;
+
+
+
 
     public String getName() { return this.name;}
     public String getAddress() {return this.address;}
-    public String getPhone() {return this.phone;}
+    public String getPhone() {return this.phoneNumber;}
+
 
     public Accountable[] getAccounts() {
         Accountable[] acc = new Accountable[this.accounts.size()];
@@ -27,11 +31,11 @@ public class BankCustomer {
         this.address = newAddress;
     }
     public void setPhone(String newPhone) {
-        this.phone = newPhone;
+        this.phoneNumber = newPhone;
     }
-    public void setAccounts(ArrayList<Accountable> newAccounts) {
-        this.accounts = newAccounts;
-    }
+
+    public void addAccount(Accountable newAccount) {}
+
     public boolean isVip() {
         int balance = 0;
         for (int i = 0; i < this.accounts.size(); i++) {

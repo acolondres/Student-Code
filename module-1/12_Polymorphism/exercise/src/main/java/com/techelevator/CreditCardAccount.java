@@ -1,14 +1,17 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CreditCardAccount implements Accountable {
+
     private String accountHolder;
     private String accountNumber;
     private int debt;
 
-    CreditCardAccount(String accountHolder, String accountNumber) {
+    public CreditCardAccount(String accountHolder, String accountNumber) {
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
-        this.debt = 0;
     }
 
     public String getAccountHolder() {
@@ -22,6 +25,13 @@ public class CreditCardAccount implements Accountable {
     public int getDebt() {
         return this.debt;
     }
+
+    public void addAccount(Accountable newAccount) {};
+
+    public Accountable[] getAccounts() {
+        return new Accountable[0];
+    }
+
 
     @Override
     public int getBalance() {
