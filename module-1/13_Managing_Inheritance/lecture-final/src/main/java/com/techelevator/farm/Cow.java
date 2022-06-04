@@ -10,11 +10,17 @@ public class Cow extends FarmAnimal implements Sellable {
 		price = new BigDecimal("1500.00");
 	}
 
+
 	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void moo() {
+	public final void moo() {
 		System.out.println("Moo");
+	}
+
+
+	public void eat() {
+		System.out.println("yum grass");
 	}
 }

@@ -1,10 +1,12 @@
 package com.techelevator;
 
-public class BankAccount {
+public class BankAccount implements Accountable {
 
     private String accountHolderName;
     private String accountNumber;
     private int balance;
+
+
 
     public BankAccount(String accountHolder, String accountNumber) {
         this.accountHolderName = accountHolder;
