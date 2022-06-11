@@ -22,7 +22,7 @@ public class WordSearch {
 			String word = in.nextLine();
 
 			//----------------------------------
-			System.out.println("Should the search be case sensitive? (Y/N)");
+			System.out.println("Should the search be case sensitive? (Y\\N)");
 			String choice = in.nextLine();
 			if (choice.equals("N")) {
 				word = word.toLowerCase();
@@ -38,12 +38,12 @@ public class WordSearch {
 					if (flag == 1) {
 						String temp = line.toLowerCase();
 						if (temp.contains(word)) {
-							System.out.println(lineNumber + ")" + line);
+							System.out.println(lineNumber + ": " + line);
 						}
 					}
 					else {
 						if (line.contains(word)) {
-							System.out.println(lineNumber + ")" + line);
+							System.out.println(lineNumber + ": " + line);
 						}
 					}
 					line = reader.readLine();
@@ -51,7 +51,6 @@ public class WordSearch {
 				}
 				//----------------------------------
 				reader.close();
-				System.out.println("------End of results------");
 			}
 			//----------------------------------
 			catch (IOException e) {
