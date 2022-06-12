@@ -1,14 +1,12 @@
 package com.techelevator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 
 public class FindAndReplace {
 
     public static void main(String[] args) {
+
 
         // create scanner and has input functionality (system.in)
         Scanner userInput = new Scanner(System.in);
@@ -34,7 +32,8 @@ public class FindAndReplace {
         System.out.println("Please enter the destination file (Path):");
         String destinationFile = userInput.nextLine();
 
-        try(Scanner fileScanner = new Scanner(sourceFile); PrintWriter writer = new PrintWriter(destinationFile)) {
+        try(Scanner fileScanner = new Scanner(sourceFile);
+            PrintWriter writer = new PrintWriter(destinationFile)) {
             File createdDestinationFile = new File(destinationFile);
 
 
@@ -43,29 +42,38 @@ public class FindAndReplace {
             } else {
                 System.out.println("File already exists.");
             }
+            try {
+                // create FileWriter object
+                FileWriter fileOut = new FileWriter(destinationFile);
+                // create BufferedWriter object
+                BufferedWriter bw = new BufferedWriter(fileOut);
 
-            // initialize scanner inside try to open file
-            // initialize "print-writer" to print to new file and reader
-            // also provide catch for possible exception
-
-
-            // loop through the line to see if it contains search word or not
-
-
-            // replace search word with replacement word
-
-
-            // create a new file/directory
-
+                // create scanner object
+                Scanner fileRead = new Scanner(new File(sourceFile));
+                // check next line present or not
+                while (fileRead.hasNextLine()) {
+                    // read each line
+                    String data = fileRead.nextLine();
+                    // write data to the destination file
+                    bw.write(data.replace(searchWord, replacementWord));
+                    bw.newLine();
+                }
+                bw.flush();
+                bw.close();
+                fileRead.close();
+                System.out.println("Data replaced successfully.");
+            } finally {
+                // leave empty I guess? it works
+            }
         } catch (FileNotFoundException ex) {
             System.out.println("File does not exist.");
         } catch (IOException ex) {
             System.out.println("A problem occurred trying to create new file.");
         }
 
+            }
 
+        }
 
-
-    }
-
-}
+//https://www.youtube.com/watch?v=NVqgVwS9Le0
+// https://www.youtube.com/watch?v=hgF21imQ_Is bufferedWriter tutorials super useful
