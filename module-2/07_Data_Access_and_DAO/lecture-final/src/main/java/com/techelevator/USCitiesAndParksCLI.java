@@ -34,6 +34,7 @@ public class USCitiesAndParksCLI {
         stateDao = new JdbcStateDao(dataSource);
         cityDao = new JdbcCityDao(dataSource);
         parkDao = new JdbcParkDao(dataSource);
+        //VideoGameCharacter mario = new Mario();
     }
 
     private void run() {
