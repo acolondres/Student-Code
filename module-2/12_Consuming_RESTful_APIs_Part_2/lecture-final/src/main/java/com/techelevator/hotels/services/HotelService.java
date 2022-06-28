@@ -3,6 +3,9 @@ package com.techelevator.hotels.services;
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.util.BasicLogger;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
@@ -17,8 +20,28 @@ public class HotelService {
      * Create a new reservation in the hotel reservation system
      */
     public Reservation addReservation(Reservation newReservation) {
-        // TODO: Implement method
-        return null;
+
+        // Creating the HTTP Request
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Reservation> entity = new HttpEntity<>(newReservation, headers);
+        Reservation result = null;
+
+        try{
+            // make the request
+            String url = API_BASE_URL + "reservations";
+            result = restTemplate.postForObject(url, entity, Reservation.class );
+
+        } catch(RestClientResponseException ex) {
+            //we found the server but the server threw an exception, normally 500's
+            BasicLogger.log(ex.getRawStatusCode() + ":" + ex.getStatusText());
+        } catch(ResourceAccessException ex) {
+            //we could not find the server or the endpoint we made the request to, normally 400's
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return result;
+
     }
 
     /**
@@ -26,16 +49,52 @@ public class HotelService {
      * reservation
      */
     public boolean updateReservation(Reservation updatedReservation) {
-        // TODO: Implement method
-        return false;
+
+        boolean isSuccessful = false;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Reservation> entity = new HttpEntity<>(updatedReservation, headers);
+
+        try{
+            // make the request
+            String url = API_BASE_URL + "reservations/" + updatedReservation.getId();
+            restTemplate.put(url, entity);
+            isSuccessful = true;
+
+        } catch(RestClientResponseException ex) {
+            //we found the server but the server threw an exception, normally 500's
+            BasicLogger.log(ex.getRawStatusCode() + ":" + ex.getStatusText());
+        } catch(ResourceAccessException ex) {
+            //we could not find the server or the endpoint we made the request to, normally 400's
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return isSuccessful;
     }
 
     /**
      * Delete an existing reservation
      */
     public boolean deleteReservation(int id) {
-        // TODO: Implement method
-        return false;
+
+        boolean isSuccessful = false;
+
+        try{
+            // make the request
+            String url = API_BASE_URL + "reservations/" + id;
+            restTemplate.delete(url);
+            isSuccessful = true;
+
+        } catch(RestClientResponseException ex) {
+            //we found the server but the server threw an exception, normally 500's
+            BasicLogger.log(ex.getRawStatusCode() + ":" + ex.getStatusText());
+        } catch(ResourceAccessException ex) {
+            //we could not find the server or the endpoint we made the request to, normally 400's
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return isSuccessful;
     }
 
     /* DON'T MODIFY ANY METHODS BELOW */
