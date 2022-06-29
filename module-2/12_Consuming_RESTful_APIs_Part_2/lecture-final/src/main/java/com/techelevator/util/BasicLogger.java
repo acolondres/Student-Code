@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class BasicLogger {
 
 	private static PrintWriter pw = null;
-	
+
 	public static void log(String message) {
 		try {
 			if (pw == null) {
@@ -26,3 +26,4 @@ public class BasicLogger {
 	}
 
 }
+

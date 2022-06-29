@@ -20,7 +20,7 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
             LocalDate.parse("2021-02-01"), 2.0, false, "Timesheet 4");
     
     private JdbcTimesheetDao sut;
-
+    private Timesheet testSheet;
 
     @Before
     public void setup() {
@@ -29,43 +29,79 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
 
     @Test
     public void getTimesheet_returns_correct_timesheet_for_id() {
-        Assert.fail();
+        Timesheet time = sut.getTimesheet(9000);
+        Assert.assertNull(time);
     }
 
     @Test
     public void getTimesheet_returns_null_when_id_not_found() {
-        Assert.fail();
+        Timesheet time = sut.getTimesheet(9000);
+        Assert.assertNull(time);
     }
 
     @Test
     public void getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee() {
-        Assert.fail();
+
+        List<Timesheet> time = sut.getTimesheetsByEmployeeId(1);
+        Assert.assertEquals(1, time.size());
+
+
+
     }
 
     @Test
     public void getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project() {
-        Assert.fail();
+        List<Timesheet> time = sut.getTimesheetsByProjectId(2);
+        Assert.assertEquals(2, time.size());
+
     }
 
     @Test
     public void createTimesheet_returns_timesheet_with_id_and_expected_values() {
-        Assert.fail();
+
+        Timesheet createdTS = sut.createTimesheet(new Timesheet());
+
+        Integer newId = createdTS.getTimesheetId();
+        Assert.assertTrue(newId > 0);
+
     }
+    
 
     @Test
     public void created_timesheet_has_expected_values_when_retrieved() {
-        Assert.fail();
+        Timesheet createTime = sut.createTimesheet(testSheet);
+        createTime.setBillable(true);
+        createTime.setDescription("apples");
+        createTime.setHoursWorked(23.50);
+
+        sut.createTimesheet(createTime);
+        Timesheet retrievedTimeSheet = sut.getTimesheet(3);
+        assertTimesheetsMatch(createTime, retrievedTimeSheet);
     }
 
     @Test
     public void updated_timesheet_has_expected_values_when_retrieved() {
-        Assert.fail();
+        Timesheet timeSheetUpdate = sut.getTimesheet(3);
+        timeSheetUpdate.setBillable(true);
+        timeSheetUpdate.setDescription("apples");
+        timeSheetUpdate.setHoursWorked(23.50);
+
+        sut.updateTimesheet(timeSheetUpdate);
+        Timesheet retrievedTimeSheet = sut.getTimesheet(3);
+        assertTimesheetsMatch(timeSheetUpdate, retrievedTimeSheet);
     }
+
 
     @Test
     public void deleted_timesheet_cant_be_retrieved() {
-        Assert.fail();
+        sut.deleteTimesheet(4);
+
+        Timesheet retrievedSheet = sut.getTimesheet(4);
+        Assert.assertNull(retrievedSheet);
+
     }
+
+
 
     @Test
     public void getBillableHours_returns_correct_total() {

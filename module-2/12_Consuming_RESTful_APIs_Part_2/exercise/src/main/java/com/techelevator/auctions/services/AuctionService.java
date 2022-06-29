@@ -18,17 +18,54 @@ public class AuctionService {
 
     public Auction add(Auction newAuction) {
         // place code here
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
+        Auction result = null;
+
+        try{
+            // make the request
+            result = restTemplate.postForObject(API_BASE_URL, entity, Auction.class );
+
+        } catch(RestClientResponseException ex) {
+            //we found the server but the server threw an exception, normally 500's
+
+        } catch(ResourceAccessException ex) {
+            //we could not find the server or the endpoint we made the request to, normally 400's
+        }
+
+        return result;
+
     }
 
     public boolean update(Auction updatedAuction) {
         // place code here
-        return false;
+        HttpEntity<Auction> entity = makeEntity(updatedAuction);
+
+        boolean success = false;
+        try {
+            restTemplate.put(API_BASE_URL + updatedAuction.getId(), entity);
+            success = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() + " : " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log(ex.getMessage());
+        }
+        return success;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+        boolean success = false;
+        try {
+            restTemplate.delete(API_BASE_URL + auctionId);
+            success = true;
+        } catch (RestClientResponseException ex) {
+            BasicLogger.log(ex.getRawStatusCode() + " : " + ex.getStatusText());
+        } catch (ResourceAccessException ex) {
+            BasicLogger.log(ex.getMessage());
+        }
+        return success;
+
     }
 
     public Auction[] getAllAuctions() {
