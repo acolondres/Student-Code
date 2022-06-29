@@ -39,7 +39,7 @@ public class MemoryReservationDao implements ReservationDao {
 
         List<Reservation> hotelReservations = new ArrayList<>();
         for (Reservation r : reservations) {
-            if (r.getHotelID() == hotelID) {
+            if (r.getHotelId() == hotelID) {
                 hotelReservations.add(r);
             }
         }

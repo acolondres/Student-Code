@@ -1,9 +1,12 @@
 package com.techelevator.reservations.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Reservation {
 
     private int id;
-    private int hotelID;
+    @JsonProperty("hotelID")
+    private int hotelId;
     private String fullName;
     private String checkinDate;
     private String checkoutDate;
@@ -15,7 +18,7 @@ public class Reservation {
 
     public Reservation(int id, int hotelID, String fullName, String checkinDate, String checkoutDate, int guests) {
         this.id = id;
-        this.hotelID = hotelID;
+        this.hotelId = hotelID;
         this.fullName = fullName;
         this.checkinDate = checkinDate;
         this.checkoutDate = checkoutDate;
@@ -30,12 +33,12 @@ public class Reservation {
         this.id = id;
     }
 
-    public int getHotelID() {
-        return hotelID;
+    public int getHotelId() {
+        return hotelId;
     }
 
-    public void setHotelID(int hotelID) {
-        this.hotelID = hotelID;
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
     }
 
     public String getFullName() {
@@ -76,7 +79,7 @@ public class Reservation {
                 "\n Reservation Details" +
                 "\n--------------------------------------------" +
                 "\n Id: " + id +
-                "\n Hotel Id: " + hotelID +
+                "\n Hotel Id: " + hotelId +
                 "\n Full Name: " + fullName +
                 "\n Checkin Date: " + checkinDate +
                 "\n Checkout Date: " + checkoutDate +
