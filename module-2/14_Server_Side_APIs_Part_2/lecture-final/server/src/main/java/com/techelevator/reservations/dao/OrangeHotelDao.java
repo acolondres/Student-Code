@@ -2,20 +2,18 @@ package com.techelevator.reservations.dao;
 
 import com.techelevator.reservations.model.Address;
 import com.techelevator.reservations.model.Hotel;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
-
-public class MemoryHotelDao implements HotelDao {
-
+@Component
+public class OrangeHotelDao implements HotelDao{
     private List<Hotel> hotels = new ArrayList<>();
 
-    public MemoryHotelDao() {
-    	initializeHotelData();
+    public OrangeHotelDao() {
+        initializeHotelData();
     }
 
     @Override
