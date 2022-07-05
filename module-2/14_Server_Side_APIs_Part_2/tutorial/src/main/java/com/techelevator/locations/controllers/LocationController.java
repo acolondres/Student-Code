@@ -5,6 +5,7 @@ import com.techelevator.locations.exception.LocationNotFoundException;
 import com.techelevator.locations.model.Location;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -28,8 +29,13 @@ public class LocationController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Location add(@RequestBody Location location) {
+    public Location add(@Valid @RequestBody Location location) {
         return dao.create(location);
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public Location update(@Valid @RequestBody Location location, @PathVariable int id) throws LocationNotFoundException {
+    return  dao.update(location, id);
     }
 
 }
