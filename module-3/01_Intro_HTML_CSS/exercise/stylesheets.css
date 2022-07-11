@@ -1,0 +1,64 @@
+html {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/S/pv-target-images/0e1d2739789a5013dc9a9723041ed747429557fd9f6ad9cf6eb68590c8df4f10._RI_.jpg);
+    background-size:cover;
+}
+
+
+
+h1 {
+    color:teal;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+        font-size: 80px;
+        color: #fff;
+        text-align: center;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+      
+      @-webkit-keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #07afaf, 0 0 40px #1c8b8f, 0 0 50px #e60026, 0 0 60px #e6000c, 0 0 70px #e60013;
+        }
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #26b3b8, 0 0 40px #2599a8, 0 0 50px #ff4d88, 0 0 60px #ff4d7a, 0 0 70px #ff4d91, 0 0 80px #ff4d91;
+        }
+      }
+table {
+    color:teal;
+    background-color:black;
+}
+td {
+    color: whitesmoke;
+}
+p {
+    color: darkgrey;
+}
+p2 {
+    color: darkgrey;
+}
+img {
+    max-width: 400px;
+}
+h5 {
+    color: teal;
+    
+}
+p3{
+    font-size: 30px;
+    text-decoration-line: underline;
+
+}
+pre{
+    font-style: italic;
+    font-size: 20px;
+}
+p4 {
+    color: whitesmoke;
+    font-size: 30px;
+    text-decoration-line: underline;
+}
+p5{
+    font-size: 20px;
+}

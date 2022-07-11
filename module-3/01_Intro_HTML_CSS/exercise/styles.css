@@ -1,0 +1,40 @@
+form {
+    background-color:lightslategray;
+}
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+
+    header {
+    
+    position:absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:lightslategray;
+      
+    }
+    
+    
+    p {
+      
+        font-size: 2rem;
+        color: lightblue;
+        text-shadow: 5px 5px 30px blue;
+        font-family: 'Open Sans Condensed', sans-serif;
+        animation-name: repeat;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        font-weight: lighter;
+    }
+    
+    @keyframes repeat {
+    
+      0% {color: lightblue; text-shadow: 5px 5px 30px lightblue;}
+      20% {color: #45aaf2; text-shadow: 5px 5px 30px  #45aaf2;}
+      40% {color: #2d98da; text-shadow: 5px 5px 30px  #2d98da;}
+      60% {color: #4b7bec; text-shadow: 5px 5px 30px  #2d98da;}
+      80% {color: #3867d6; text-shadow: 5px 5px 30px  #3867d6;}
+      100% {color: lightblue; text-shadow: 5px 5px 30px  lightblue;}
+    
+    }
+    
+    
