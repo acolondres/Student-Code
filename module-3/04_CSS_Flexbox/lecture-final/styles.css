@@ -1,5 +1,36 @@
  
+#hero footer {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+#featured section{
+  display:flex;
+}
+
+#featured section article div{
+  display:flex;
+  justify-content: center;
+}
+
+#all-items section article{
+  display:flex;
+  align-items:center;
+}
+
+#all-items section article:last-child {
+  flex-direction:row-reverse;
+}
+
+@media screen and (max-width:800px) {
+  #featured section{
+    flex-direction: column;
+    
+  }
+
+
+}
 
 /***** enter flexbox CSS above this line *****/
 
@@ -11,6 +42,12 @@ body {
 section {
   width: 80vw;
   font-family: Tahoma, sans-serif;
+}
+
+@media screen and (max-width: 800px){
+  section {
+    width: 100vw;
+  }
 }
 
 #hero {
@@ -60,6 +97,14 @@ section {
 #featured section article:nth-child(even) {
   border-left: 20px solid darkcyan;
   border-right: 20px solid darkcyan;
+}
+
+@media screen and (max-width:800px) {
+ 
+  #featured section article:nth-child(even){
+    border-left: none;
+    border-right:none;
+  }
 }
 
 #featured section article div {
