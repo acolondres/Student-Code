@@ -15,3 +15,77 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+aside {
+  border-style: solid;
+  border-width: 1px;
+  border-color:rgba(0, 173, 238, 0.4);
+  position: fixed;
+  height: 101vh;
+  width: 200px;
+  margin-left:-10px;
+  margin-top: -10px;
+}
+
+img[src="mark.png"] {
+  width: 120px;
+ margin-left: 20%;
+  margin-top: 10px;
+} 
+
+li {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom-style:solid;
+  border-color:rgba(0, 173, 238, 0.4);
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  list-style:none;
+  margin-top: 10%;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+
+
+a {
+  font-weight: bold;
+  color: #00ADEE;
+  text-decoration: none;
+}
+
+li:first-child {
+  text-decoration: underline;
+}
+
+main {
+  margin-left: 200px;
+}
+
+img[src="stacked-logo.png"] {
+  max-height: 100px;
+  margin-bottom: 10px;
+}
+
+img[src="https://via.placeholder.com/2400X800"] {
+  width: 100vw;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+section {
+  width: 33%;
+  display: inline-flex;
+
+  
+}
+i {
+  margin-right: 2%;
+}
+h2 {
+  color: #8CC36F;
+}
+div {
+  margin-top: 10px;
+  
+}

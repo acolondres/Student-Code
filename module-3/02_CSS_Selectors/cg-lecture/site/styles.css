@@ -1,0 +1,76 @@
+* {
+box-sizing: border-box;
+background-color:#541A1A;
+}
+
+img {
+    max-width: 150px;
+    box-shadow: 0px 0px 15px #e9e50fb9;
+    padding:3px;
+    vertical-align: top;
+    
+    
+}
+
+blockquote {
+    text-align: center;
+}
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body {
+  background-color: #541A1A;
+}
+
+.title {
+  font-family: "Cairo";
+  text-align: center;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  letter-spacing: 1px;
+  line-height:2
+}
+
+h1 {
+  background-image: url(https://thumbs.gfycat.com/ArtisticEquatorialEidolonhelvum-size_restricted.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin: 10px 0;
+
+    -webkit-text-stroke: 2px black; /* width and color */
+
+}
+.btn {
+    border: none;
+    background-color: rgb(238, 224, 164);
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 180px;
+    margin-top: -140px;
+    border-radius: 5px;
+    
+  }
+  
+  /* On mouse-over */
+  .btn:hover {background: rgb(255, 255, 255);}
+
+  p {
+      font-size: 130%;
+      border-style:outset;
+      border-color: #572626d8;
+      border-inline-end:initial;
+  }
+  
+
+
+
+
