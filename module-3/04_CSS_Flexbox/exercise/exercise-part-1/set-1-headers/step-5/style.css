@@ -6,6 +6,17 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+header a {
+  justify-content: left;
+}
+
+header nav {
+  flex-grow: 2;
 }
 
 .logo {

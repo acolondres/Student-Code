@@ -1,6 +1,11 @@
 body{
     width:95vw;
-    height: 95vh;    
+    height: 95vh;   
+    display: flex;
+    flex-direction:row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
