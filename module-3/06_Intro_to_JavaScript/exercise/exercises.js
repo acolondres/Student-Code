@@ -7,6 +7,9 @@
 		sumDouble(2, 2) → 8
 */
 		function sumDouble(x, y) {
+			if(x===y) {
+				return (x+y)*2;
+			}
 			// do logic here
 			// return result;
 			return x + y;
@@ -21,6 +24,16 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+function hasTeen(num1, num2, num3) {
+	if(num1 >=13 && num1 <= 19) {
+		return true;
+	}  if(num2 >=13 && num2 <= 19) {
+		return true;
+	} if(num3 >=13 && num3 <= 19) {
+		return true;
+	}
+	return false;
+}
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
@@ -31,6 +44,12 @@
 		lastDigit(3, 113) → true
 */
 
+function lastDigit(num1, num2) {
+	if(num1 % 10 === num2 % 10) {
+		return true;
+	} return false;
+}
+
 /*
 4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color 
     string, otherwise return the empty string.
@@ -39,6 +58,14 @@
 		seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
 */
+function seeColor (str) {
+	if(str.startsWith("red")) {
+		return "red" ; }
+			else if(str.startsWith("blue")) {
+				return blue;
+			}
+	return ""; }
+
 
 /*
 5. **oddOnly** Write a function that given an array of integer of any length, removes

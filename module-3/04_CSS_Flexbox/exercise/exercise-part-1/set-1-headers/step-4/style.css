@@ -9,8 +9,6 @@ header {
   display: flex;
 }
 
-header a
-
 .logo {
   width: 140px;
 }
@@ -19,8 +17,17 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  display-flex: end
+  display:flex;
+  justify-content: flex-end;
+  flex-grow: 1;
 }
+
+nav {
+  display: flex;
+  flex-grow: 1;
+}
+
+
 
 li {
   font-family: 'Oswald', sans-serif;

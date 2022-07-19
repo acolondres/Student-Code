@@ -6,27 +6,21 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
-  display: flex;
-  justify-content: flex-end;
-  flex-grow: 1;
-}
-
-header a {
-  justify-content: left;
-}
-
-header nav {
-  flex-grow: 2;
+  display:flex;
 }
 
 .logo {
   width: 140px;
+}
+.spacer {
+  flex-grow: 2;
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  display:flex;
 }
 
 li {
@@ -47,8 +41,4 @@ a:visited {
 a:hover {
   color: #00AFEF;
   text-decoration: underline;
-}
-
-.my-account img {
-  width: 40px;
 }
