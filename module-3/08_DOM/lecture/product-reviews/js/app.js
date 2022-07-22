@@ -1,4 +1,4 @@
-const name = 'Cigar Parties for Dummies';
+const siteName = 'Cigar Parties for Dummies';
 const description = 'Host and plan the perfect cigar party for all of your squirrelly friends.';
 const reviews = [
   {
@@ -36,12 +36,17 @@ const reviews = [
  * Get our page page title by the id and the query the .name selector
  * once you have the element you can add the product name to the span.
  */
-function setPageTitle() {}
+function setPageTitle() {
+  const pageTitle = document.getElementById("page-title");
+  pageTitle.querySelector(".name").innerText = siteName;
+}
 
 /**
  * Add our product description to the page.
  */
-function setPageDescription() {}
+function setPageDescription() {
+  document.querySelector(".description").innerText = description;
+}
 
 /**
  * I will display all of the reviews on the page.

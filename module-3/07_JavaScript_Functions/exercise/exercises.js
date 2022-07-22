@@ -19,6 +19,14 @@
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
+function isAdmitted(gpa, satScore=0, recommendation=false) {
+    if(gpa>4.0 
+        || satScore>1300 
+        || gpa>3.0 && recommendation===true 
+        || satScore>1200 && recommendation===true) {
+        return true;
+    } else return false;
+}
 
 /**
  * Write a function called useParameterToFilterArray that takes an anonymous
@@ -28,6 +36,9 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+function useParameterToFilterArray(filterFunction){
+return unfilteredArray.filter(filterFunction);
+}
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -42,6 +53,11 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the resultant number
  */
 
+function makeNumber(str1, str2="") {
+    result=str1.concat(str2);
+    return Number(result);
+}
+
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds all of them together. Return the sum.
@@ -50,13 +66,26 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
+function addAll(){
+    var p = 0; 
+  for(var i=0;i<arguments.length;i++){
+     p += arguments[i];
+  }
+   return p;
+}
+    
+
+
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
 
+
 /*
+
+
  * Write and document a function called getFullAddressesOfProperties
  * that takes an array of JavaScript objects containing the
  * following keys:
@@ -73,6 +102,7 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  *
  * Use `map` and an anonymous function.
  */
+
 
 /** 
  * Write and document a function called findLargest that uses `forEach`
