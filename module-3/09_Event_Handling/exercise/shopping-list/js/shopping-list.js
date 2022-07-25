@@ -20,6 +20,7 @@ const groceries = [
 function setPageTitle() {
   const title = document.getElementById('title');
   title.innerText = pageTitle;
+
 }
 
 /**
@@ -36,3 +37,10 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  setPageTitle();
+  displayGroceries();
+});
+
+const allComplete = document.getElementById('toggleAll');
