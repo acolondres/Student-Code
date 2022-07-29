@@ -11,10 +11,10 @@
     </thead>
     <tbody>
        <tr>
-        <td><input v-model="filter.firstName" type="text" id="firstNameFilter"/></td>
-        <td><input v-model="filter.lastName" type="text" id="lastNameFilter"/></td>
-        <td><input v-model="filter.username" type="text" id="usernameFilter"/></td>
-        <td><input v-model="filter.emailAddress" type="text" id="emailFilter"/></td>
+        <td><input type="text" id="firstNameFilter"  v-model="filter.firstName"/></td>
+        <td><input id="lastNameFilter" v-model="filter.lastName" type="text"/></td>
+        <td><input id="usernameFilter" v-model="filter.username" type="text"/></td>
+        <td><input id="emailFilter" v-model="filter.emailAddress" type="text"/></td>
         <td>
           <select v-model="filter.status" id="statusFilter">
             <option value="">Show All</option>
@@ -25,7 +25,7 @@
         </td>
       </tr>
       <!-- user listing goes here -->
-      <tr v-for="user in users" v-bind:key="user">
+      <tr v-for="user in filteredList" v-bind:key="user.emailAddress">
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.username}}</td>
@@ -40,14 +40,7 @@
 export default {
   name: 'user-list',
   data() {
-    return {
-      filter: {
-        firstName:"",
-        lastName:"",
-        username:"",
-        emailAddress:"",
-        status:""
-      },
+    return{
       users: [
         { firstName: 'John', lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
         { firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
@@ -55,16 +48,25 @@ export default {
         { firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
-      ]
+      ],
+      filter: {
+        firstName: "",
+        lastName:"",
+        username:"",
+        emailAddress: '',
+        status: ''
+      }
     }
   },
  computed:{
     filteredList(){
-      return this.users.filter(user => user.firstName.toLowerCase().includes(this.filter.firstName) &&
-      user.lastName.toLowerCase().includes(this.filter.lastName) &&
-      user.username.includes(this.filter.username) &&
-      user.emailAddress.includes(this.filter.emailAddress) &&
-      user.status.includes(this.filter.status))
+      let filteredUsers = this.users.filter(
+        (x) => {
+          return x.firstName.toLowerCase()
+          .includes(this.filter.firstName.toLowerCase());
+        }
+      )
+      return filteredUsers;
     }
   }
 }
