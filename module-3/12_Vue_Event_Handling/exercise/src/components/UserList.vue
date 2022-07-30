@@ -52,7 +52,7 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" v-on:click.prevent="flipStatus(user.id)">{{user.status == "Disabled" ? "Enable":"Disable"}}</button>
           </td>
         </tr>
       </tbody>
@@ -64,24 +64,24 @@
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click="showForm = !showForm">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showForm">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" v-model="newUser.firstName" name="firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" v-model="newUser.lastName" name="lastName" />
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" v-model="newUser.username" name="username" />
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" v-model="newUser.emailAddress" name="emailAddress" />
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -93,6 +93,8 @@ export default {
   name: "user-list",
   data() {
     return {
+      showForm: false,
+       selectedUserIDs: [],
       filter: {
         firstName: "",
         lastName: "",
@@ -160,8 +162,23 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    flipStatus(userId) {
+      let userToUpdate = this.users.find(
+        (x) => x.id===userId
+      );
+      userToUpdate.status = userToUpdate.status === "Active" ? "Disabled": "Active";                                              
+    },
+    saveUser() {
+      this.users.unshift(this.newUser);
+      this.newUser={};
+      this.showForm = false;
+    }
+  },
   computed: {
+    actionButtonDisabled() {
+      return this.selectedUserIDs.length == 0;
+    },
     filteredList() {
       let filteredUsers = this.users;
       if (this.filter.firstName != "") {
