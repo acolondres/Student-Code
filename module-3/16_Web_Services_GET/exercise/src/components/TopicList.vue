@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import TopService from "../service/TopService";
+import TopicsService from "../service/TopicsService";
 export default {
   name: 'topic-list',
   data() {
@@ -18,7 +18,7 @@ export default {
     }
   },
   created() {
-    TopService.list().then((response) => {
+    TopicsService.list().then((response) => {
       this.topics = response.data;
     });
   },

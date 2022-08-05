@@ -1,10 +1,18 @@
 <template>
   <div class="topic-details">
+    <h1>{{ topic.title }}</h1>
+    <div v-for="message in topic.messages" v-bind:key="message.id" class="topic-message bubble">
+      <h3 class="message-title">{{ message.title }}</h3>
+      <p class="message-body">
+        {{ message.messageText }}
+      </p>
+    </div>
   </div>
 </template>
 
+
 <script>
-import TopService from "../services/TopicsService";
+import TopicsService from "../service/TopicsService";
 export default {
   name: 'topic-details',
   props: {
@@ -20,7 +28,7 @@ export default {
     }
   },
  created() {
-    TopService.get(this.$route.params.id).then((response) => {
+    TopicsService.get(this.$route.params.id).then((response) => {
       this.topic = response.data;
     });
   }

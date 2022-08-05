@@ -1,20 +1,20 @@
 <template>
  <div>
-    <best-seller-list />
-    <new-releases-list />
+    <best-sellers-list></best-sellers-list>
+    <new-releases-list></new-releases-list>
+ </div>
 
 </template>
 
 <script>
 
-import BestsellerList from '@/components/BestsellerList.vue';
+import BestSellersList from '@/components/BestsellerList.vue';
 import NewReleasesList from '@/components/NewReleasesList.vue';
 
 export default {
 
     components: {
-        BestsellerList,
-        NewReleasesList
+        BestSellersList, NewReleasesList
     }
 
 };
