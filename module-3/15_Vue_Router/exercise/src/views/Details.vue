@@ -1,0 +1,18 @@
+<template>
+    <div>
+    <book-details v-bind:book="bookByIsbn"></book-details>
+    </div>
+</template>
+
+<script>
+import BookDetails from '@/components/BookDetails'
+export default {
+    components: {BookDetails},
+    computed: {
+        bookByIsbn() {
+            return this.$store.state.books.find(book => book.isbn === this.$route.params.isbn)
+        }
+    }
+    
+}
+</script>
